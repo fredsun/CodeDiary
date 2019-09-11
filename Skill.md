@@ -1470,4 +1470,6 @@ allprojects {
 [Ref:
 安卓AlertDialog对话框背景模糊的简单实现](https://blog.csdn.net/qq_32718875/article/details/83513342)
 
+### 272. int无法存储null
+
 ### 集合塞进去的是数组还是
