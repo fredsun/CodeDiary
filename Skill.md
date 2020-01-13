@@ -182,6 +182,7 @@ https://www.nowcoder.com/discuss/30334?type=2&order=3&pos=8&page=1
 76. 静态内部类和内部类的区别
 * 静态内部类不持有外部类的引用, 所以无法调用外部类的非 static 的变量和方法
 * 匿名内部类, 没"=", 直接 new XXX(){}, 完成了java的闭包
+* 降低类的深度，方便类的使用，
 77. 堆内存和栈内存的区别
 78. 弱引用软引用区别
 79. Serializable 和 Parcelable 的区别
@@ -1471,5 +1472,11 @@ allprojects {
 安卓AlertDialog对话框背景模糊的简单实现](https://blog.csdn.net/qq_32718875/article/details/83513342)
 
 ### 272. int无法存储null
+
+### 273. protected
+private 只可自己用
+默认多一个同包里的类
+protected子类也可以
+public 跨包
 
 ### 集合塞进去的是数组还是
