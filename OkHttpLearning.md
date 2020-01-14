@@ -100,6 +100,40 @@
               - 非可缓存的
               - 无缓存
 
+    - 连接池
+    - ConnectInterceptor, 使用了之前创建的 StreamAllocation
+    - intercept()方法中
+      - streamAllocation.newStream() 生成 HttpCodec
+        - newStream()方法中
+          - findHealthyConnection()中循环 findConnection() 方法寻找 RealConnection, 找到后锁住 connectionPool, 返回 HttpCodec
+            - 什么是不健康的 Connection, 流未执行完
+            - findConnection(), 尝试复用, 不能复用时创建新的 Connection 去 host 一个新的 Stream 并放入连接池
+              - 在找不到 PoolConnection 时才会创建，
+      - streamAllocation.connection() 生成 RealConnection, 用于网络IO
+      - realChain.proceed()
+      - ConnectionPool
+        - get()方法
+          - 循环 List connections
+          - 寻找 isEligible 的 connection
+          - streamAllocation.acquire() 将 connection 的弱引用放入 connections【callStackTrace？】
+        - put()方法
+        - 回收
+          - GC
+            - pruneAndAllocationCount()方法循环StreamAllocation的Reference, 根据弱引用是否为 null 来判断是否为不活跃的链接
+          - StreamAllocation数量
+          - cleanUpRunnable
+    - 是否设置NetWorkInterceptor
+    - CallServerInterceptor, 写入网络IO流
+      - intercept()方法中
+        - 一直贯穿的RealInterceptorChain
+        - 流封装成的HttpCodec实现为2个，对应Http1.0协议和2.0协议，常用1, 编码Request, 解码Response
+          - httpCodec.writeRequestHeaders(); 向 Sockets 流中写入 Request
+          - httpCodec.finishRequest();Request完成
+          - httpCodec.readResponseHeaders; 开始读取Response头
+          - 创建Response
+
+okhttp中分两种链接, Socket连接和隧道连接
+
 
 md5加密
 C++
