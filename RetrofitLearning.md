@@ -102,3 +102,36 @@ return serviceMethod.callAdapter.adapt(okHttpCall);//内部调用了OkHttp的raw
 2. ServiceHandler //创建Request
 3. Okhttp发送网络请求 //发送网络请求
 4. converter //解析返回
+
+#### 外观模式
+Retrofit本身就是，提供给外观统一的接口，调用成员变量
+
+#### 策略模式
+根据环境调用不同的方法, 对比生产模式创建不同的对象，策略强调不同对象的不同方法的具体实现
+addCallAdapterFactory中
+public interface CallAdapter<T>{
+  Type responseType();
+  <R> T adapt(Call<R> var1);
+  public abstract static class Factory{
+    public Factory(){
+    }
+    public abstract CallAdapter<?> get(Type var1, Annotation[] var2, )
+    ...
+  }
+}
+
+#### 适配器模式
+将接口转换为具体需要实现的类型
+addCallAdapterFactory中传入RxJavaCallAdapterFactory.create(); 将call适配为适合rxjava的call
+OkHttpCall<T> implements Call<T>
+
+
+#### 观察者模式
+建立对象与对象之间的联系，一对多
+多个观察者之间没有联系
+call是被观察者, Callback是观察者
+Call call = myInterface.getCall();
+call.execute();
+call.enqueue(new retrofit2.Callback(){
+  ......
+  })
