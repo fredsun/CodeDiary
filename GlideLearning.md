@@ -72,6 +72,9 @@ EngineResouce 的 acquire()记录使用次数, 不再使用的交给LruCache缓�
 
 ### 缓存
 1. 内存
-  1. LruCache
-  2. 弱引用
+  1. 强引用
+    LruCache LinkedHashMap存储检值关系, 达到最大存储时把最近最少使用的移除
+  2. 软引用
+    HaspMap可以随时销毁
 2. 硬盘，防止重复访问网络
+  DiskLruCache
