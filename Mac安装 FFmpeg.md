@@ -29,14 +29,29 @@ brew install yasm
 brew install fdk-aac
 ```
 
+成功后显示
+License: nonfree and unredistributable
+
 ### 3. 安装FFmpeg
 ```
 make && make install
 
 // 如果安装出现下图的错误的话就用这条命令来安装
+9 warnings generated.
+LD	ffprobe_g
+STRIP	ffprobe
+mkdir: /usr/local/ffmpeg/lib: Permission denied
+make: *** [install-libavdevice-static] Error 1
+
+//如下命令重装, 需要两句sudo
+make clean
 sudo make && sudo make install
 ```
 安装成功后ffmpeg所在的目录是/usr/local/ffmpeg
+安装完提示如下的话，说明需要家
+```
+
+```
 
 ### 4. 配置环境变量
 ```

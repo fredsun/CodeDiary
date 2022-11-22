@@ -1479,4 +1479,23 @@ private 只可自己用
 protected子类也可以
 public 跨包
 
+###274. 嵌套RecyclerView
+第二个RecyclerView的高度不能是0dp
+
+### 275.color has not declaration
+剪切下错误的部分再贴回去
+
+### 276. Glide 切换图片闪烁
+placeholder 设置为当前图片的Drawable
+placeholder(imaveView.getDrawable())
+
+### 277. javax.net.ssl.SSLHandshakeException: Handshake failed
+### 278. java.net.UnknownServiceException: CLEARTEXT communication to 182.61.31.87 not permitted by network s
+### 279.  @Body parameters cannot be used with form or multi-part encoding. (parameter #1)
+
+### 280 Bean, parcel嵌套多个list, 每一级都需要写
+in.readTypedList(orderList, OrderListBean.CREATOR);
+和  dest.writeTypedList(orderList);
+
+### 281. RecyclerView 二级嵌套，父Holder里拦截子RecyclerView的touch时，注意itemView是否真的是父itemview
 ### 集合塞进去的是数组还是
