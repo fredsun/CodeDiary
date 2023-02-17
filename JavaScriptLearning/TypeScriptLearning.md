@@ -73,19 +73,65 @@ javascript代码可运行在 Node 和 Web 的环境中，window 是 Web环境的
     1.  mkdir TSHello && cd TSHello
     2.  npm init -y//创建默认配置，生成package.json
     3.  tsc --init//生成 tsconfig.json配置文件
-      ```javascript
-      {
-      "declaration": true, //打包之后是否生成声明文件
-      "outDir": "./dist", //js&.d.ts的输出路径
-      "target":"",
-      ...}
-       ,
-      "exclude": ["./dist"]//添加进过滤
-      ```
-   4. `tsc `//编译项目，生成dist等, Terminal -> Run Build Task同理
-   5. 运行js, cd到对应路径，运行`node xxx.js`
+         ```javascript
+         {
+         "declaration": true, //打包之后是否生成声明文件
+         "outDir": "./dist", //js&.d.ts的输出路径
+         "target":"",
+         ...}
+         ,
+         "exclude": ["./dist"]//添加进过滤
+         }
+         ```
 
-2. 报错合集
+    4. `tsc `//编译项目，生成dist等, Terminal -> Run Build Task同理
+    5. 运行js, cd到对应路径，运行`node xxx.js`
+
+1. npm init
+   1. 生成package.json
+1. npm init -y 快速初始化
+2. npm install
+   1. 运行package.json 只是运行在当前文件夹  
+
+1. npm vs npx
+   1. npm一般共享package.json即可共享配置和引入
+   2. npx可以本地引入同一个包的不同版本以及某个包的一部分
+   3. npm 
+      1. 需要的包写进 package.json
+      2. 解析到包的 bin 路径
+      3. bash中执行 npm run packageName
+   1. npx
+      1. 先判断包/命令是否在环境变量或者本地项目的 bin 目录里, 存在就直接执行
+      2. 不进行包的安装，直接运行
+      3. 提供包的不同版本
+
+1. ESLint
+   
+   1.  `eslint --init`手动生成.eslintrc.js后自己编辑
+         ```
+         How would you like to use ESLint? … //一般选2
+         To check syntax only //只检查语法
+         To check syntax and find problems //检查语法e&&找出问题
+         To check syntax, find problems, and enforce code style //检查语法&&找出问题&&强行修改格式
+         What type of modules does your project use?   JavaScript modules 
+         What type of modules does your project use? · esm
+         Which framework does your project use? · vue
+         Does your project use TypeScript? · Yes
+         Where does your code run? … 
+         Browser
+         ``` 
+      
+      而后默认安装    
+       eslint-plugin-vue@latest 
+       @typescript-eslint/eslint-plugin@latest 
+       @typescript-eslint/parser@latest eslint@latest
+       生成.eslintrc.js文件
+
+
+    1.`npm install eslint --save-dev`更推荐
+
+
+### 报错合集
    1. Specified 'include' paths were '["**/*"]' and 'exclude' paths were '["./dist"]'
       1. 没监视到ts文件
 

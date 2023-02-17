@@ -5,14 +5,18 @@
 1. 提交至本地
 `git commit -m "message"`
 `git commit 文件名 -m "message"`跳过git add
+`git log`查看commit记录
 1. 推送到远程库
 完整写法`git push 远程主机名 本地分支:远程目标分支`
 `git push origin dev:test`就是将本地dev分支推送到远程origin主机的test分支上
 省略远程分支名`:test`,则写作`git push origin dev`
 已在本地master分支时,省略本地分支名 `git push origin`
 
+1. git参数配置
+`git config --list`查看全部信息
 
-1. 查看本地分支
+
+2. 查看本地分支
 `git branch`
 一条主分支显示
     * master
