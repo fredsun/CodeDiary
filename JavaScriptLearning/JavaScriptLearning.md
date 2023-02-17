@@ -75,3 +75,49 @@
 1. 对象
    1. 对象的名字表现为命名空间，子命名空间类似子类
    2. 对象做到了字符串到值的映射，数组做到了数字到值的映射，对象也被成为关联数组(associative array)
+
+1. 需要被继承的属性前加prototype，如Object.prototype.valueOf();
+2. this关键字指向的不是原型prototype
+3. 原型对象是一个内部对象，应当使用__proto__访问
+4. constructor构造器创建实例???
+
+1. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
+
+1. super()需要自己调用
+2. 私有是 #, 需要在声明时声明，#name, #getName(){}
+3. JSON就是基于JavaScript对象的格式写的
+4. 必须在回调函数中调用回调函数
+5. fetch()基于Promise, 特性比XMLHttpRequest多， 且XMLHttpRequest是古早产物
+6. Promise链???
+   1. 状态
+      1. pending,待定中即请求中
+      2. fulfilled，已兑现，请求完成， 调用then()
+      3. reject，已拒绝，求失败，调用catch()
+      4. 有时候用 settled 已敲定来表示 fulfilled/reject 情况
+      5. 如果一个 Promise 处于已决议 resolved 状态，或者被锁定跟随其他 Promise 状态，那就是 fulfiled
+      6. PromiseAll接受一个Promise数组，返回单个Promise. 全部被兑现，才会调用then()，任何一个Promise被拒绝，都调用catch()
+      7. PromiseAny() 任何一个兑现都算fulfiled
+      8. 函数开头加async，直接变异步函数，函数被封装成 Promise 对象，
+      9. 强行同步 await, 类似PromiseAll, 它在等一个Promise.resolve(...), 也可以等任意表达式
+7. 箭头函数
+   1. ES6引入，没new，没原型，没super, arguments, 没自动的 prototype
+   2. () => {} 替代 function(){}
+   3. (a,b)=>{} 替代 function(a,b){}
+   4.  a => {} 替代 function(a){} 箭头函数在只有一个参数时可不要括号
+   5.  只有一个表达式/数/语句/赋值时，大括号也可以省去
+        1.  (x) => 2 * x 
+        2.  let setName = (x) => x.name = "Bob" 
+
+1. 定时器setTimeout()
+
+1. workers?????
+
+1. 存储
+   1. ~~cookies~~, document.cookie一把梭
+   2. WebStorage/IndexDB
+      1. WebStorage
+         1. sessionStorage, 浏览器关闭则消失
+         2. localStorage， 一直保存，常用
+   3. CacheAPI即ServiceWorkerAPI
+
+

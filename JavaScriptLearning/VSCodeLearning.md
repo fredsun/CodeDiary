@@ -44,3 +44,5 @@
          node: true
       },
       ```
+
+1. chrome  打开 控制台 Command + Option + J
