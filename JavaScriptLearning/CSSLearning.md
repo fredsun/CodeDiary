@@ -41,3 +41,31 @@
 3. 有些值不接受百分比，如只接受<length>，不接受<length-percent>
 4. rgb设置第四个通道只会让颜色不透明，旧版IE不支持HSL，HSL可以调节饱和度
 5. 类选择器比元素选择器有更高的优先级
+6. 继承
+```
+body {
+    color: green;
+}
+          
+.my-class-1 a {
+    color: inherit;//开启继承
+}
+          
+.my-class-2 a {
+    color: initial;//使用初始值，不被其他影响
+}
+          
+.my-class-3 a {
+    color: unset;//重置为默认值
+}
+    revert-layer //重置为上一个层叠层中应用的值
+```
+
+1. 层叠
+   1. 资源顺序，同权重时后设置的覆盖之前的
+   2. 优先级
+   3. 重要程度
+   4. !important 强行修改优先级, 自己少用，阅读他人代码时看懂即可
+   5. @layerName 提高层的优先级
+
+1. 响应式设计
