@@ -6,6 +6,30 @@
    1. 先给terminal安装code命令. vscode中按下cmd+shift+p, 输入`shell`, 顶部显示 >shell, 安装"Shell Command: Install 'code' command in PATH"
    2. code 文件名  打开文件
 
+1. LiveServer 存在的意义
+   1. 解决跨域
+      1. 直接双击打开index.html 走的是文件协议, js运行环境就会和通过http协议加载的形式不同
+      2. LiveServer 走的是http协议
+      3. LiveServer 给页面最后插入一段script, 和浏览器建立socket通信。并且检测代码，通过socket通知浏览器刷新
+   
+
+
+### 插件相关
+1. ESlint
+2. LiveServer
+3. AutoCloseTag
+4. AytoRenameTag
+5. BracketPairColorDLW 括号颜色区分
+6. GitHistory
+7. GithubTheme
+8. Markdown All in One
+9. CodeRunner
+10. MarkDownPreviewEnhanced
+11. Chinese(Simplified)
+12. ImportCost
+13. gitlens(git compare)
+14. git graph
+
 ###报错合集
 1. Error: A package.json file is necessary to initialize ESLint. Run `npm init` to create a package.json file and try again.
    1. 在创建 eslint 前需要已有 package.json
