@@ -27,7 +27,10 @@
    4. let适用于for循环(js里for循环是独立的块作用域)，
    5. let无法重复声明
 
-5. 跨域
+1. const 声明一个只读的常量，一旦声明，无法改变
+   1. 其本质是存储一个常量所在的内存地址，如果存放的是指针（如对象/数组），则只是保证指针固定
+
+2. 跨域
    1. 存在于http/https, websocket协议不存在
    2. http://www.example.com:80/a.js
    3. 协议，接口，域名，三者任何一个不一致，视为非同源，非同源文件之间访问会引发跨域错误
@@ -40,35 +43,35 @@
       1. 开发者工具下，双击打开的index没有请求结构
       2. LiveServer打开的http有请求头，跨域访问的module，请求头是cors
       ![1]([https://github.com/fredsun/RES/raw/master/http-cors.png)
-
-6. 解决跨域
+   7. ES模块不能通过file协议工作
+3. 解决跨域
    1. JSONP
       1. 只可解决http请求
       2. 老的服务器支持JSONP，对CORS不是很支持
    2. CORS
-   1. 参考https://zhuanlan.zhihu.com/p/132534931
-   2. https://blog.csdn.net/weixin_38230631/article/details/106156817
+   3. 参考https://zhuanlan.zhihu.com/p/132534931
+   4. https://blog.csdn.net/weixin_38230631/article/details/106156817
 
-7. 变量提升Hoisting
+4. 变量提升Hoisting
    1. 只会提升声明，不会赋值
 
-8. DOM（Document Object Model）文档对象模型
+5. DOM（Document Object Model）文档对象模型
 
-9. 变量名，小驼峰。下划线是私有
+6. 变量名，小驼峰。下划线是私有
 
-10. 单引号双引号皆可
+7.  单引号双引号皆可
    
-11. 数组尾部增删 myArray.push()/pop();
-12. 数组头部增删 myArray.push()/pop();
-13. 匿名函数可以作为变量，而后调用变量, **不建议**
+8.  数组尾部增删 myArray.push()/pop();
+9.  数组头部增删 myArray.push()/pop();
+10. 匿名函数可以作为变量，而后调用变量, **不建议**
    ```
    var myGreeting = function() {
      alert('hello');
    }
    myGreeting();
    ```
-14. 事件, e,evt,event
-15. 内联事件处理器—不建议
+11. 事件, e,evt,event
+12. 内联事件处理器—不建议
    类似android直接在xml里添加onClick监听
    ```
     <btn onClick="...">;
@@ -88,11 +91,11 @@
    myElement.addEventListener('click', functionA);
    myElement.addEventListener('click', functionA);
    ```
-16. document.querySelector???????????
+13. document.querySelector???????????
 
-17. 当一个元素的一个事件类型，同时有两个事件处理器被激活
+14. 当一个元素的一个事件类型，同时有两个事件处理器被激活
 
-18. touch传递之事件捕获及冒泡，类似android 触摸传递的down
+15. touch传递之事件捕获及冒泡，类似android 触摸传递的down
    1. 捕获：父类从外到内，每一层都判断是否有对事件进行监听 类似 android 触摸 down
    2. 冒泡：子类从内到外，每一层都判断是否有对事件进行监听 类似 android 触摸 up
    3. 现代浏览器默认，所有事件处理程序都在冒泡阶段进行注册
@@ -100,23 +103,29 @@
    5. 过去 NetScape 只用事件捕获，Internet Explorer只是用事件冒泡
    6. 如果一定要在捕获阶段拦截，addEventListener()第三个属性设置为true
    7. 事件委托，子类想全部都监听事件，则用父类去监听，比如列表选项框
-19. 对象
+16. 对象
    1. 对象的名字表现为命名空间，子命名空间类似子类
    2. 对象做到了字符串到值的映射，数组做到了数字到值的映射，对象也被成为关联数组(associative array)
 
-20. 需要被继承的属性前加prototype，如Object.prototype.valueOf();
-21. this关键字指向的不是原型prototype
-22. 原型对象是一个内部对象，应当使用__proto__访问
-23. constructor构造器创建实例???
+17. 需要被继承的属性前加prototype，如Object.prototype.valueOf();
+18. this关键字指向的不是原型prototype
+19. 原型对象是一个内部对象，应当使用__proto__访问
+20. constructor构造器创建实例???
 
-24. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
+21. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
 
-25. super()需要自己调用
-26. 私有是 #, 需要在声明时声明，#name, #getName(){}
-27. JSON就是基于JavaScript对象的格式写的
-28. 必须在回调函数中调用回调函数
-29. fetch()基于Promise, 特性比XMLHttpRequest多， 且XMLHttpRequest是古早产物
-30. Promise链???
+22. super()需要自己调用
+23. # 和 $
+    1.  私有是 #, 需要在声明时声明，#name, #getName(){}
+    2.  $() === document.getElementById()
+    3.  $F() 返回任何表单输入的值
+    4.  ("p") 选取 <p> 元素。
+    5.  $("p.intro") 选取所有 class="intro" 的 <p> 元素。
+    6.  $("p#demo") 选取所有 id="demo" 的 <p> 元素。
+24. JSON就是基于JavaScript对象的格式写的
+25. 必须在回调函数中调用回调函数
+26. fetch()基于Promise, 特性比XMLHttpRequest多， 且XMLHttpRequest是古早产物
+27. Promise链???
    1. 状态
       1. pending,待定中即请求中
       2. fulfilled，已兑现，请求完成， 调用then()
@@ -127,7 +136,7 @@
       7. PromiseAny() 任何一个兑现都算fulfiled
       8. 函数开头加async，直接变异步函数，函数被封装成 Promise 对象，
       9. 强行同步 await, 类似PromiseAll, 它在等一个Promise.resolve(...), 也可以等任意表达式
-31. 箭头函数
+28. 箭头函数
    1. ES6引入，没new，没原型，没super, arguments, 没自动的 prototype
    2. () => {} 替代 function(){}
    3. (a,b)=>{} 替代 function(a,b){}
@@ -136,11 +145,11 @@
         1.  (x) => 2 * x 
         2.  let setName = (x) => x.name = "Bob" 
 
-32. 定时器setTimeout()
+29. 定时器setTimeout()
 
-33. workers?????
+30. workers?????
 
-34. 存储
+31. 存储
    1. ~~cookies~~, document.cookie一把梭
    2. WebStorage/IndexDB
       1. WebStorage
