@@ -11,6 +11,7 @@
       1. 直接双击打开index.html 走的是文件协议, js运行环境就会和通过http协议加载的形式不同
       2. LiveServer 走的是http协议
       3. LiveServer 给页面最后插入一段script, 和浏览器建立socket通信。并且检测代码，通过socket通知浏览器刷新
+
    
 
 

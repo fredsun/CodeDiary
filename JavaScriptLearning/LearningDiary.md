@@ -14,10 +14,18 @@ Leaflet书滚第一遍
 补javascript基础
 
 ### 2.17
+学习css
 
+### 2.18
+学习javascript.类选择器
+学习火星坐标系
+hellovue2
 
 ### 2.20
+学习跨域cors
 
 
 ### 2.21
 vue 第一次启动mars2d-vue
+hellovue3
+
