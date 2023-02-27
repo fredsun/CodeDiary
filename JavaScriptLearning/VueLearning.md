@@ -217,8 +217,10 @@
    3. isReadonly
    4. isProxy 是否由rective/readonly创建的
 
-1. fragment是元素外自带的外套，虚拟的元素
-2. Teleport 用to传递数据到任意层/最外层
-3. Suspense 异步渲染
+1. app的配置需要在mount前
+
+2. fragment是元素外自带的外套，虚拟的元素
+3. Teleport 用to传递数据到任意层/最外层
+4. Suspense 异步渲染
    1. 
-4. 插值写法
+5. 插值写法

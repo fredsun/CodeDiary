@@ -71,3 +71,6 @@
       ```
 
 1. chrome  打开 控制台 Command + Option + J
+
+1. crbug/1173575, non-JS module files deprecated.
+   1. 修改.vscode下launch.json的url/port
