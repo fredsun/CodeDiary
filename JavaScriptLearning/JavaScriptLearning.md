@@ -164,4 +164,36 @@
          2. localStorage， 一直保存，常用
    3. CacheAPI即ServiceWorkerAPI
 
+1. [object Object]
+   1. 每一个对象都有toString(),默认情况下，toString被每个Object继承，如果未覆写，则toString返回[object type]，其中 type是对象的类型
+   2. 字符串拼接，会将+两边的都是String时才拼接，而对象被拼接时会被toString()调用。如果直接打印，则对象无法被默认tostring转换，从而显示object
+   3. 解决：加JSON.stringfy(对象名)
+
+1. json数组本身就是javascript写的文件
+2. import直接引入后, 就已经获得了json对象
+   ```
+   import json from '../assets/BEIJING_country.json'
+   ```
+1. JavaScript的对象是动态类型，可以自由的给对象删除属性
+```
+delete  man.nickName
+delete man['nickName']
+```
+1. 对象的键必须是字符串，Map除外
+1. object打印
+   1. 直接打印
+   ```javascript
+      console.log("str:",str)
+   ```
+   1. 防止[object,object]
+   ```javascript
+   let str=JSON.stringify()
+   console.log("str:"+str)
+   ```
+   2. 遍历1级item
+   ```javascript
+     for (var item in map) {
+        console.log(item + ' node: ' + map[item])
+      }
+   ```
 

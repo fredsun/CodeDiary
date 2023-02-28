@@ -143,3 +143,33 @@ javascript代码可运行在 Node 和 Web 的环境中，window 是 Web环境的
       5. 或者使用require 绕过 import,
       `let blob = require("blob-polyfill/Blob");`
       6. 直接使用`<script src = "./utils-value.js"></script>`后，使用已定义的变量
+
+1.  [vite] Internal server error: Failed to resolve import "../" from "src\apis\user.ts". Does the file exist?
+    1.  解决:https://www.jianshu.com/p/39f42d4022c2
+    2.  配置别名路径，需要安装path插件
+   ```
+   npm install --save-dev @types/node
+   vite.config.ts中补充
+   import { defineConfig } from 'vite'
+   import vue from '@vitejs/plugin-vue'
+
+   // *********************************** 路径配置新增 start  
+   import { resolve } from 'path'     
+
+   const pathResolve = (dir: string): any => {  
+   return resolve(__dirname, ".", dir)          
+   }
+
+   const alias: Record<string, string> = {
+   '@': pathResolve("src")
+   }
+
+   // ********************************** 路径配置新增  end 
+   // https://vitejs.dev/config/
+   export default defineConfig({
+   plugins: [vue()],
+   resolve: {  // ****************** 路径配置新增
+      alias     // ****************** 路径配置新增
+   }           // ****************** 路径配置新增
+   })
+   ```
