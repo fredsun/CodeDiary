@@ -14,6 +14,7 @@
       1. 百度
 7. 天地图是无偏移的坐标系，CGCS2000 
 8. 百度地图是经过国标GCJ002加密成火星地图后继续二次加密的bd09
+9. 自定义icon会随着地图缩放，坐标发生改变，iconAnchor无法解决，尝试Leaflet.Canvas-Markers
 
 ###源码相关
 1. map中一层layers是

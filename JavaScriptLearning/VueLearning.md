@@ -225,6 +225,7 @@
 
 3. fragment是元素外自带的外套，虚拟的元素
 4. Teleport 用to传递数据到任意层/最外层
-5. Suspense 异步渲染
+5. inject 直接写入setup中，别写在监听里
+6. Suspense 异步渲染
    1. 
-6. 插值写法
+7. 插值写法
