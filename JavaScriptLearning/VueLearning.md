@@ -229,3 +229,15 @@
 6. Suspense 异步渲染
    1. 
 7. 插值写法
+
+
+### 报错
+1. 无法加载文件 D:\Program Files\nodejs\node_global\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.micros oft.com
+   1. win默认禁止了脚本运行
+   2. 解决：
+   ```
+   //查看禁止状态，Restricted表示禁止
+   get-ExecutionPolicy
+   set-ExecutionPolicy RemoteSigned 
+   Y
+   ```
