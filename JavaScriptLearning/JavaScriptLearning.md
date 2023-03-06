@@ -122,7 +122,7 @@
 21. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
 
 22. super()需要自己调用
-23. # 和 $
+23. \# 和 $
     1.  私有是 #, 需要在声明时声明，#name, #getName(){}
     2.  $() === document.getElementById()
     3.  $F() 返回任何表单输入的值
@@ -196,4 +196,147 @@ delete man['nickName']
         console.log(item + ' node: ' + map[item])
       }
    ```
+
+1. js模块历史(环境+编译器+语法版本)
+   >1个文件即1个模块，用一个作用域
+   1. ES6之前
+   ES6之前本身无模块化，服务端 Node 用 CJS 即 CommonJS，浏览器端用 AMD, 异步代码块
+   nodejs使用的是 CommonJS 规范，而 import 是 ES6 的规范，想要使用import， 必须靠 babel 将 import 转译成模块化代码
+   CommonJS 在引入时可以动态绑定，即 if 等条件语句里切换引用, 通过**值拷贝**【进内存生成缓存】，若第一次被加载，则先执行导入模块内的内容，然后导出，再执行代码。若已加载过，则直接使用第一次执行后的内容，相当于静态值
+      1. AMD
+      ```
+      define (['dep1', 'dep2], function (dep1, dep2) {
+      //Define the module value by returning a value. 
+      return function() {};
+      });
+      ```
+      或
+      ```
+      // "simplified CommonJS wrapping" https://requirejs.org/docs/whyamd.html
+      define(function (require) {
+      var dep1 = require (dep1"), dep2 = require(dep2');
+      return function() {};
+      });
+      ```
+      2. UMD通用模块定义，前后端都适用的代码块，当使用 Rollup/Webpack 之类的打包器时，UMD 通常用作备用模块
+      ```
+      (function (root, factory) {
+         if (typeof define === "function" && define.amd) {
+         define (["jquery", "underscore"], factory);
+         } else if (typeof exports === "object") {
+         module.exports = factory(require("query"), require("underscore"));
+         } else {
+         root.Requester = factory(root.$, root._);
+         }
+      }(this, function ($, _) {
+         // this is where I defined my module implementation
+         var Requester = {// ... };
+         return Requester;
+      }));
+      ```
+      3. CJS
+      ```
+      // importing 
+      const doSomething = require('./doSomething.js'); 
+
+      // exporting
+      module.exports = function doSomething(n) {
+      // do something
+      }
+      ```
+   1. ES6之后
+   ES6 设计思想是尽量静态化，在编译时完成引用，确认模块的依赖关系。过去的 CJS,AMD 都是运行时，是只读的**动态映射**,ES6输出值的引用
+   > ps: 静态是模块的依赖关系建立**编译**阶段
+   >     动态是模块的依赖关系建立**运行**阶段
+
+   2. ES6优势
+      1.  死代码检测和排除，在运行前，静态分析工具检测出未调用的代码
+      2.  模块变量类型检查，在运行前，检查出模块间调用的接口参数
+      3.  编译器优化, CommonJS引入的是对象，ES6引入的是变量，减少应用层级
+
+      4. ES6之前的CommonJS
+         1. 导入
+         ```javascript
+         require
+         ```
+         2. 导出，顶级导出会覆盖次级导出，无论位置先后
+         ```javascript
+         module.exports,exports.x 
+         ```
+
+   3. ES6写法
+      1. 导入
+         1. 命名导入{}
+         ```javascript
+         //从源模块导入其原始名称的特定项目
+         import  { something } from'./module.js';
+         //导入后自定义名称
+         import  { something as somethingElse } from'./module.js';
+         ```
+         2. 命名空间导入
+         ```javascript
+         //将源模块中的所有内容作为对象导入，将所有源模块的命名导出公开为属性和方法。默认导出被排除在此对象之外。
+         importas module from'./module.js'
+         module.something
+         ```
+         3. 默认导入
+         ```javascript
+         import something from'./module.js';
+         ```
+         4. 空的导入
+         ```javascript
+         import  './module.js';
+         ```
+      2. 导出
+         1. 命名导出
+         ```javascript
+         //导出具体声明的值：
+         var something =true;
+         export { something };   
+         //在导出时重命名：
+         export { something as somethingElse };
+         // 声明后立即导出：
+         //这可以与 `var`, `let`, `const`, `class`, and `function` 配合使用
+         export var something =true;
+         ```
+         2. 默认导出,顶级导出，跟name的次级导出不冲突
+         ```javascript
+         //导出一个值作为源模块的默认导出：
+         export default something;
+         ```
+1. 打包
+   打包环境需要自己安装，npm只是包管理器，不负责打包
+   常规js代码可以运行，但是一旦跨包即需要打包工具，不只是发布需要打包
+   打包工具包括webpack、parcel、vite等等,webpack作者后新建了turbopack
+   报错：Uncaught ReferenceError: require is not defined，或者 Cannot use import statement outside a module 
+   找不到require和important并不只是ES版本，更是web环境未搭建，所以即使require用ES5绕过important也无效
+   ```javascript
+      <script>
+      this === window ? console.log('browser') : console.log('node');
+      /*
+         判断global对象是否为window,
+         为window在浏览器中运行
+         不为window在node环境中运行
+      */
+      </script>
+   ```
+   安装
+   ```javascript
+   //安装webpack
+   npm install --save-dev webpack
+   //安装webpackCLI
+   npm install webpack webpack-cli –g  
+   ```
+   1. 打包是将模块打包成一个或者多个bundle
+
+   1. 打包报错
+      1. 无法将“webpack”项识别为 cmdlet、函数、脚本文件或可运行程序的名称
+         1. 解决：在 package.json的script标签下，添加 "build":"webpack",然后执行`npm run build`执行打包指令
+         ```javascript
+         "scripts": {
+            "build": "webpack"
+         },
+         ```
+
+
 

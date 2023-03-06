@@ -43,4 +43,23 @@ vue3 完成toast
 leaflet完成点和旋转图标
 第一次引入 echart
 
+### 3.2
+
+
+### 3.3
+看完了郭佬的文章
+几乎原地踏步，卡在 echart 与 leaflet 混合，
+似乎是图表类本身无法与缩放绑定，geo.roam:true 不生效
+百度推出的vue-echart需对vue3高度熟练，demo都暂时可读不好写
+
+
+### 3.4
+todo js各版本加入模块
+todo 栅格数据，自己加载地图块儿
+todo canvas画折线
+
+### 3.6
+学习webpack和webpack-CLI
+
+
 
