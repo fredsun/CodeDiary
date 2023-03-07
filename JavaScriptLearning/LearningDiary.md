@@ -61,5 +61,9 @@ todo canvas画折线
 ### 3.6
 学习webpack和webpack-CLI
 
+### 3.7
+web开发尽量避开全局配置, 具体项目配置具体的webpack和webpack-cli
+webpack卸载后查看包即可，而不是用npm webpack -v，这个是查看npm的版本
+
 
 

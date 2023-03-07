@@ -308,7 +308,7 @@ delete man['nickName']
    打包环境需要自己安装，npm只是包管理器，不负责打包
    常规js代码可以运行，但是一旦跨包即需要打包工具，不只是发布需要打包
    打包工具包括webpack、parcel、vite等等,webpack作者后新建了turbopack
-   报错：Uncaught ReferenceError: require is not defined，或者 Cannot use import statement outside a module 
+   报错：Uncaught ReferenceError: require is not defined，或者 Cannot use import statement outside a module ,或者Cannot use import statement outside a modul
    找不到require和important并不只是ES版本，更是web环境未搭建，所以即使require用ES5绕过important也无效
    ```javascript
       <script>
@@ -322,10 +322,33 @@ delete man['nickName']
    ```
    安装
    ```javascript
-   //安装webpack
-   npm install --save-dev webpack
-   //安装webpackCLI
-   npm install webpack webpack-cli –g  
+   //npm init生成package.json文件
+   npm init -y
+   //安装webpack和webpack-cli，官网的代码块
+   //npm install --save-dev webpack
+   //安装webpackCLI,4.0开始必须安装，官网的代码块
+   //npm install webpack webpack-cli --save-dev
+   npm i webpack webpack-cli -D
+   //npx会将node_module下的./bin添加环境变量,development替换为production则进入生产模式
+    npx webpack ./src.main.js --mode=development
+
+
+   //卸载全局webpack
+   npm uninstall webpack-dev-server -g 
+   //卸载局部webpack
+   npm uninstall webpack-dev-server -D  
+   //查看npm路径
+   npm config ls -l
+   //安装webpack和webpack-cli
+   npm install webpack wepack-cli -D    
+   //安装rm -rf(win下的是rimraf，且需另外安装)
+   npm install rimraf --save-dev
+   //查看全局安装的npm插件
+   npm list -g --depth 0
+
+   //
+
+   'D:\\Program Files\\nodejs\\node_global\\node_modules\\webpack\\bin\\webpack.js
    ```
    1. 打包是将模块打包成一个或者多个bundle
 
@@ -338,5 +361,7 @@ delete man['nickName']
          },
          ```
 
-
+      2. webpack卸载后, `npm webpack -v` 输出9.5, 并不是 webpack 卸载不干净。webpack最新版本只有5，9.5显示的是 node 版本，而不是webpack
+      3. Uncaught ReferenceError: require is not defined
+         1. node14已经不再支持require引入
 
