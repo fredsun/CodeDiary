@@ -241,3 +241,5 @@
    set-ExecutionPolicy RemoteSigned 
    Y
    ```
+1.   Uncaught SyntaxError: Unexpected identifier 'xxx'
+     1.   检查,号""号

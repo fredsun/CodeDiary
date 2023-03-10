@@ -74,3 +74,11 @@
 
 1. crbug/1173575, non-JS module files deprecated.
    1. 修改.vscode下launch.json的url/port
+
+1. 443 
+```
+//添加代理
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+//取消代理
+git config --global --unset http.https://github.com.proxy)
+```

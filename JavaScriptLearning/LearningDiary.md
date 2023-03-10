@@ -44,7 +44,7 @@ leaflet完成点和旋转图标
 第一次引入 echart
 
 ### 3.2
-
+学习webpack
 
 ### 3.3
 看完了郭佬的文章
@@ -54,9 +54,7 @@ leaflet完成点和旋转图标
 
 
 ### 3.4
-todo js各版本加入模块
-todo 栅格数据，自己加载地图块儿
-todo canvas画折线
+学习webpack
 
 ### 3.6
 学习webpack和webpack-CLI
@@ -65,5 +63,10 @@ todo canvas画折线
 web开发尽量避开全局配置, 具体项目配置具体的webpack和webpack-cli
 webpack卸载后查看包即可，而不是用npm webpack -v，这个是查看npm的版本
 
+### 3.8
+学习webpack
+
+todo 栅格数据，自己加载地图块儿 geoServer
+todo canvas画折线
 
 
