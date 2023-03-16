@@ -27,3 +27,17 @@
 ### 报错合集
 1.  marker漂移
     1.  设置iconAnchor为图标size的一半
+
+1. toGeoJson找不到方法
+   1. leaflet-omnivore 使用后续fix的版本 https://github.com/mapbox/leaflet-omnivore
+
+1. L.DomEvent.fakeStop is not a function 
+   1. Leaflet Vectorgrid 包加载时的错误
+   2. 解决：在代码任意出添加fakestop方法 https://stackoverflow.com/questions/73833142/leaflet-vectorgrid-problem-with-click-event
+   ```
+   L.DomEvent.fakeStop = function() {
+    return true;
+   }
+   ```
+
+   1. 三方包别引入```import "https://unpkg.com/leaflet.vectorgrid@latest/dist/Leaflet.VectorGrid.bundled.js"```格式,否则科xue上网一旦出现问题, 项目直接白屏

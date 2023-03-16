@@ -66,7 +66,26 @@ webpack卸载后查看包即可，而不是用npm webpack -v，这个是查看np
 ### 3.8
 学习webpack
 
+### 3.9
+canvas绘折线
+
+### 3.10
+canvas绘曲线
+canvas画贝塞尔曲线
+
+### 3.11
+canvas画贝塞尔曲线
+
+### 3.13
+完成大网格的绘制，geojson
+
+### 3.14
+完成小网格的绘制，geojson
+gitlfs处理大型数据
+找到了清华的一个gislab的大作业，参考绘制小网格
+
+
+todo处理geojson点击
 todo 栅格数据，自己加载地图块儿 geoServer
-todo canvas画折线
 
 
