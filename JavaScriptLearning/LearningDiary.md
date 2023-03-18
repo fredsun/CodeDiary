@@ -88,4 +88,17 @@ gitlfs处理大型数据
 todo处理geojson点击
 todo 栅格数据，自己加载地图块儿 geoServer
 
+### 3.15
+造json假数据
+
+### 3.16
+造json假数据
+
+
+### 3.17
+根据Leaflet.VectorGrid源码demo里的示例，写出slice内动态设置color的方法
+完成小网格图彩色ui
+
+### 3.18
+
 
