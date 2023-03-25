@@ -243,3 +243,12 @@
    ```
 1.   Uncaught SyntaxError: Unexpected identifier 'xxx'
      1.   检查,号""号
+
+1. :digital envelope routines::unsupported
+   1. 解决：版本问题，不回退的话，
+      ```
+      "scripts": {
+         "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+         "build": "vue-cli-service build"
+       },
+      ```
