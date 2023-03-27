@@ -365,9 +365,11 @@ delete man['nickName']
       3. Uncaught ReferenceError: require is not defined
          1. node14已经不再支持require引入
 
-1. Uncaught SyntaxError: Unexpected token 'export'
+1. html 4.0.1<xmp>被废弃的标签可用来直接输出带标签的html结构文件, <pre>反而会转义html标签
+
+2. Uncaught SyntaxError: Unexpected token 'export'
    1. 引入时加入type的`<script src = "..." type ="module"></script>`
 
-1. ReferenceError: module is not defined
+3. ReferenceError: module is not defined
    1. `module.exports = api;`改为`export default api`
 
