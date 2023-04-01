@@ -35,6 +35,8 @@
    x.a = "11";//ok
    ```
 
+1. 字面量,数字，boolean,对象{}，数组[]字面量, 匿名函数字面量function lambda，正则表达式字面量(*/)
+
 1. #region和#endregion包裹被注释的代码
 
 2. 跨域
@@ -144,7 +146,7 @@
       8. 函数开头加async，直接变异步函数，函数被封装成 Promise 对象，
       9. 强行同步 await, 类似PromiseAll, 它在等一个Promise.resolve(...), 也可以等任意表达式
 28. 箭头函数
-   1. ES6引入，没new，没原型，没super, arguments, 没自动的 prototype
+   1. ES6引入，没new，没原型，没super, arguments, 没this, 没自动的 prototype
    2. () => {} 替代 function(){}
    3. (a,b)=>{} 替代 function(a,b){}
    4.  a => {} 替代 function(a){} 箭头函数在只有一个参数时可不要括号
@@ -175,10 +177,10 @@
    import json from '../assets/BEIJING_country.json'
    ```
 1. JavaScript的对象是动态类型，可以自由的给对象删除属性
-```
-delete  man.nickName
-delete man['nickName']
-```
+   ```
+   delete  man.nickName
+   delete man['nickName']
+   ```
 1. 对象的键必须是字符串，Map除外
 1. object打印
    1. 直接打印
@@ -196,8 +198,11 @@ delete man['nickName']
         console.log(item + ' node: ' + map[item])
       }
    ```
+1. 闭包
 
-1. js模块历史(环境+编译器+语法版本)
+
+
+#### js模块历史(环境+编译器+语法版本)
    >1个文件即1个模块，用一个作用域
    1. ES6之前
    ES6之前本身无模块化，服务端 Node 用 CJS 即 CommonJS，浏览器端用 AMD, 异步代码块

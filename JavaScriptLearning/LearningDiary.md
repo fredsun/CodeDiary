@@ -101,6 +101,7 @@ todo 栅格数据，自己加载地图块儿 geoServer
 完成小网格图彩色ui
 
 ### 3.18
+canvas通过lineDash修改线段style
 
 ### 3.20
 感冒几乎无效率
@@ -124,7 +125,29 @@ canvas绘制图标
 * 气象资料开放平台key:CWB-455A46CA-A5EC-459F-80BC-00B397135036
 
 
-### 3.26
+### 3.25
 ai绘制svg
+
+### 3.27
+ai绘制svg
+
+### 3.28
+ai绘制svg
+
+### 3.29
+引入element plus UI框架
+引入pinia 总线控制
+配置全局静态config文件
+配置ts格式的store目录，类似创建全局参数类
+修改alias便于使用@引入固定路径的包
+新建左侧侧边栏控制
+
+### 3.30 
+潮汐地图init
+geoserver>mapserver
+QGIS安装
+geoserver的样式legend无法preview，将jdk降低到8
+天地图shp获取: 天地图"数据API" -> http://gisserver.tianditu.gov.cn/TDTService/wfs 
+
 
 
