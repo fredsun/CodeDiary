@@ -150,4 +150,24 @@ geoserver的样式legend无法preview，将jdk降低到8
 天地图shp获取: 天地图"数据API" -> http://gisserver.tianditu.gov.cn/TDTService/wfs 
 
 
+### 4.1
+直接访问图片的方式访问瓦片
 
+### 4.3
+瓦片存放规则为目录z/x/y.jpg
+
+### 4.4
+寻找tile-lnglat-transform使用方法
+实则因为popup要强行显示在屏幕中，导致地图中心无法正确偏移到指定的坐标。
+
+### 4.6
+html里引入外部js，实则作为`<script>`直接引入js。
+即使 npm install 后引入进了 node_modules 文件夹，但是依然无法靠import/require等方式引入，因为没有webpack打包构建。
+
+### 4.7
+初步完成assets地图zxy读取。
+marker+popup+echart弹窗
+
+### 4.8
+sqlite3存储图片，将图片存为blob，读取时转为base64
+npm 安装 better-sqlite3 , gyp报错，删除 npm-lock.json,后重新 npm install

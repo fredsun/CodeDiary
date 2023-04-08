@@ -166,39 +166,48 @@
          2. localStorage， 一直保存，常用
    3. CacheAPI即ServiceWorkerAPI
 
-1. [object Object]
+
+
+32. [object Object]
    1. 每一个对象都有toString(),默认情况下，toString被每个Object继承，如果未覆写，则toString返回[object type]，其中 type是对象的类型
    2. 字符串拼接，会将+两边的都是String时才拼接，而对象被拼接时会被toString()调用。如果直接打印，则对象无法被默认tostring转换，从而显示object
    3. 解决：加JSON.stringfy(对象名)
 
-1. json数组本身就是javascript写的文件
-2. import直接引入后, 就已经获得了json对象
+33. json数组本身就是javascript写的文件
+34. import直接引入后, 就已经获得了json对象
    ```
    import json from '../assets/BEIJING_country.json'
    ```
-1. JavaScript的对象是动态类型，可以自由的给对象删除属性
+35. JavaScript的对象是动态类型，可以自由的给对象删除属性
    ```
    delete  man.nickName
    delete man['nickName']
    ```
-1. 对象的键必须是字符串，Map除外
-1. object打印
+36. 对象的键必须是字符串，Map除外
+37. object打印
    1. 直接打印
    ```javascript
       console.log("str:",str)
    ```
-   1. 防止[object,object]
+   2. 防止[object,object]
    ```javascript
    let str=JSON.stringify()
    console.log("str:"+str)
    ```
-   2. 遍历1级item
+   3. 遍历1级item
    ```javascript
      for (var item in map) {
         console.log(item + ' node: ' + map[item])
       }
    ```
-1. 闭包
+38. 闭包
+
+39. npm --save
+    1. --save是npm5.0时需要的，现在--save已经是内置函数了
+
+40. 别名
+   项目别名配置需要在 vite.config.json 和 tsconfig.json 两处同时配置, 且 tsconfig.json 需要安装`@type/node`后才可以使用。【为了补充类型声明文件即使在项目新建时已经使用了--template vue-ts自动引入的typescript】
+41. npm 安装 better-sqlite3 , gyp报错，删除 npm-lock.json,后重新 npm install
 
 
 
@@ -270,7 +279,7 @@
          ```
 
    3. ES6写法
-      1. 导入
+      1. 导入, import + 常量 | 函数 | 文件 | 模块
          1. 命名导入{}
          ```javascript
          //从源模块导入其原始名称的特定项目
@@ -309,6 +318,7 @@
          //导出一个值作为源模块的默认导出：
          export default something;
          ```
+   4. 如果只是单纯的在html中使用直接使用`<script src = "./xxx.js">`标签直接引入，即使npm install ，也无法直接使用相对简写域名引入
 1. 打包
    打包环境需要自己安装，npm只是包管理器，不负责打包
    常规js代码可以运行，但是一旦跨包即需要打包工具，不只是发布需要打包
