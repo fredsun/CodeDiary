@@ -169,5 +169,59 @@ html里引入外部js，实则作为`<script>`直接引入js。
 marker+popup+echart弹窗
 
 ### 4.8
-sqlite3存储图片，将图片存为blob，读取时转为base64
+sqlite3存储图片，将图片转化为二进制，存为blob，读取时转为base64
 npm 安装 better-sqlite3 , gyp报错，删除 npm-lock.json,后重新 npm install
+
+### 4.10
+electron//类似gui桌面开发工具
+
+### 4.11
+前端数据库选型
+1. indexDB 无法靠三方GUI连接，默认5MB扩展后是扩展了区域，且无法导出db，只可JSON，只可CRUD
+2. sqlite3 移动端泛用，electron后期有搭配方案
+
+* sqlite3踩坑
+  * 前端引入时初步考虑直接引入sqlite3, 运行时报错缺少 gyp, 安装 npm install node-gyp 和 npm install node-pre-gyp, 后依然报错
+  * 导入better-sqlite3包
+  * 于是尝试本地编译sqlite3, 需py3和c++工具链环境 npm install sqlite3 --build-from-source。此时报错 ERR "aws-sdk","mock-aws-s3","nock"。
+  * 于是考虑放弃sqlite3和better-sqlite3的包，使用sql-js
+
+
+关于浏览器自存储的预研
+1. Not allowed to load local resource
+直接读取CDE盘的文件系统不可以。于是放入asset的资源路径下，完成
+1. 但是文件数量过多，考虑文件格式转换后塞进数据库，即jpg图片转二进制后存为数据库blob字段
+2. 基于容量、可访问的通用文件系统，考虑sqlite3
+
+
+sql-wasm.js:91 Uncaught Error: incomplete input
+数据库缺少字段
+
+### 4.12
+图以blob存入数据库
+
+### 4.13
+将blob导出
+
+### 4.14
+Grid继承自tileLayer，并且提供继承demo。
+所以考虑重写GridLayer, 
+* 注意 重写的是 `createTile: function (coords) {`，而不是` createTile: function (coords, done) {`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

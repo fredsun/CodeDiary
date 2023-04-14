@@ -17,6 +17,9 @@
     npm install axios 
     npm install @type/node
     npm install better-sqlite3
+    npm install node-gyp //sqlite3需要先安装gyp
+    npm install sqlite3
+    npm install tile-lnglat-transform//处理tile-lnglat坐标转换
 
     npm install echarts     
 ```
