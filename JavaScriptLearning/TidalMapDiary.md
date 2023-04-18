@@ -16,17 +16,27 @@
     npm install element-plus
     npm install axios 
     npm install @type/node
-    npm install better-sqlite3
-    npm install node-gyp //sqlite3需要先安装gyp
-    npm install sqlite3
+    npm install sql-js//可读数据库，改动无法直接保存
     npm install tile-lnglat-transform//处理tile-lnglat坐标转换
 
     npm install echarts     
 ```
 
+2. 数据库存储
+    FileReader.readASDataURL(file) 读取为Base64格式
 
-2. 打开 server服务器
-```
-http://localhost:8080/geoserver/web
-```
+3.  geoserverserver服务器
+* 安装geoserbercache插件。
+  * 下载插件解压后放在`webapp`文件夹下
+    * 栅格数据源
+      * ImageMosaic 影响拼接，图放在一个文件夹下设置拼接。
+
+1. tomcat服务器
+   1. 用8.0的，适配jdk
+   2. 修改startup.bat,解决启动闪退
+      ```
+      SET JAVA_HOME=D:\Program Files\java\jdk\jdk1.8.0_361
+      SET TOMCAT_HOME=E:\gis_server\apache-tomcat-8.5.87
+      SET CATALINA_HOME=E:\gis_server\apache-tomcat-8.5.87
+      ```
 
