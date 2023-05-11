@@ -4,24 +4,24 @@
    2. win8 ie10
    3. win10 ie11+edge
    4. ie市场占有率5%以下
-2. 解释性语言，编译发生在运行中        
-3. 区分JavaScript和JQuery
+1. 解释性语言，编译发生在运行中        
+1. 区分 JavaScript 和 JQuery
    1. 概念
       1. JavaScript 是通过标签插入到HTML页面
       2. JQuery是一个JavaScript函数库, 或者说是一个框架使用JQuery首先要在 HTML 代码最前面加上对 jQuery 库的引用, 库文件既可以放在本地，也可以直接使用知名公司的 CDN，好处是这些大公司的 CDN 比较流行，用户访问你网站之前很可能在访问别的网站时已经缓存在浏览器中了，所以能加快网站的打开速度。另外一个好处是显而易见的，节省了网站的流量带宽
 
     2. 入口函数的不同
-       1. js：window.onload = function(){内部放js}　
-       2. jQuery:$(function(){})或者$(document).ready(function(){})
+       1. js：`window.onload = function(){内部放js}`
+       2. jQuery:`$(function(){})`或者`$(document).ready(function(){})`
     3. 获取元素的方式不同
-       1. js：常用的以下几个，除了id，其他的结果都是伪数组
-       2. jQuery：$(" ")通过和css雷同的选择器方式来获取元素。得到的是jquery对象（dom元素的数组，外加其他一些成员）
+       1. js：常用的以下几个，除了 id，其他的结果都是伪数组
+       2. jQuery：`$(" ")`通过和 css 雷同的选择器方式来获取元素。得到的是 jquery 对象（ dom 元素的数组，外加其他一些成员）
     4. 获取内联，内嵌，外部
-       1. JS操作样式的方法只能获取内联样式，不能取内嵌的和外部的。
-       2. JQUERY操作样式的方法可以是内联的也可以是内嵌的。
+       1. JS 操作样式的方法只能获取内联样式，不能取内嵌的和外部的。
+       2. JQUERY 操作样式的方法可以是内联的也可以是内嵌的。
 
-4. let 和 var
-   1. ES6新增let
+1. let 和 var
+   1. ES6新增 let
    2. JS只有函数作用域和全局作用域，无块级作用域, function(){}是块级，即暂时性死区TDZ
    3. 作用域只在let在的代码区块，而且有暂时性的死区约束temporal dead zone（未声明前无法调用）【var类似全局变量
    4. let适用于for循环(js里for循环是独立的块作用域)，
@@ -39,7 +39,7 @@
 
 1. #region和#endregion包裹被注释的代码
 
-2. 跨域
+1. 跨域
    1. 存在于http/https, websocket协议不存在
    2. http://www.example.com:80/a.js
    3. 协议，接口，域名，三者任何一个不一致，视为非同源，非同源文件之间访问会引发跨域错误
@@ -53,7 +53,7 @@
       2. LiveServer打开的http有请求头，跨域访问的module，请求头是cors
       ![1]([https://github.com/fredsun/RES/raw/master/http-cors.png)
    7. ES模块不能通过file协议工作
-3. 解决跨域
+1. 解决跨域
    1. JSONP
       1. 只可解决http请求
       2. 老的服务器支持JSONP，对CORS不是很支持
@@ -61,26 +61,26 @@
    3. 参考https://zhuanlan.zhihu.com/p/132534931
    4. https://blog.csdn.net/weixin_38230631/article/details/106156817
 
-4. 变量提升Hoisting
+1. 变量提升Hoisting
    1. 只会提升声明，不会赋值
 
-5. DOM（Document Object Model）文档对象模型
+1. DOM（Document Object Model）文档对象模型
 
-6. 变量名，小驼峰。下划线是私有
+1. 变量名，小驼峰。下划线是私有
 
-7.  单引号双引号皆可
+1.  单引号双引号皆可
    
-8.  数组尾部增删 myArray.push()/pop();
-9.  数组头部增删 myArray.push()/pop();
-10. 匿名函数可以作为变量，而后调用变量, **不建议**
+1.  数组尾部增删 myArray.push()/pop();
+1.  数组头部增删 myArray.push()/pop();
+1. 匿名函数可以作为变量，而后调用变量, **不建议**
    ```
    var myGreeting = function() {
      alert('hello');
    }
    myGreeting();
    ```
-11. 事件, e,evt,event
-12. 内联事件处理器—不建议
+1. 事件, e,evt,event
+1. 内联事件处理器—不建议
    类似android直接在xml里添加onClick监听
    ```
     <btn onClick="...">;
@@ -100,11 +100,11 @@
    myElement.addEventListener('click', functionA);
    myElement.addEventListener('click', functionA);
    ```
-13. document.querySelector???????????
+1. document.querySelector???????????
 
-14. 当一个元素的一个事件类型，同时有两个事件处理器被激活
+1. 当一个元素的一个事件类型，同时有两个事件处理器被激活
 
-15. touch传递之事件捕获及冒泡，类似android 触摸传递的down
+1. touch传递之事件捕获及冒泡，类似android 触摸传递的down
    1. 捕获：父类从外到内，每一层都判断是否有对事件进行监听 类似 android 触摸 down
    2. 冒泡：子类从内到外，每一层都判断是否有对事件进行监听 类似 android 触摸 up
    3. 现代浏览器默认，所有事件处理程序都在冒泡阶段进行注册
@@ -112,29 +112,29 @@
    5. 过去 NetScape 只用事件捕获，Internet Explorer只是用事件冒泡
    6. 如果一定要在捕获阶段拦截，addEventListener()第三个属性设置为true
    7. 事件委托，子类想全部都监听事件，则用父类去监听，比如列表选项框
-16. 对象
+1. 对象
    1. 对象的名字表现为命名空间，子命名空间类似子类
    2. 对象做到了字符串到值的映射，数组做到了数字到值的映射，对象也被成为关联数组(associative array)
 
-17. 需要被继承的属性前加prototype，如Object.prototype.valueOf();
-18. this关键字指向的不是原型prototype
-19. 原型对象是一个内部对象，应当使用__proto__访问
-20. constructor构造器创建实例???
+1. 需要被继承的属性前加prototype，如Object.prototype.valueOf();
+1. this关键字指向的不是原型prototype
+1. 原型对象是一个内部对象，应当使用__proto__访问
+1. constructor构造器创建实例???
 
-21. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
+1. javascript的继承更类似于委派，当我们要求对象执行某项任务时，在委派模式下，对象可以自己执行该项任务，或者要求另一个对象（委派的对象）以其自己的方式执行这项任务。在许多方面，相对于继承来说，委派可以更为灵活地在许多对象之间建立联系（例如，委派模式可以在程序运行时改变、甚至完全替换委派对象）
 
-22. super()需要自己调用
-23. \# 和 $
+1. super()需要自己调用
+1. \# 和 $
     1.  私有是 #, 需要在声明时声明，#name, #getName(){}
     2.  $() === document.getElementById()
     3.  $F() 返回任何表单输入的值
     4.  ("p") 选取 <p> 元素。
     5.  $("p.intro") 选取所有 class="intro" 的 <p> 元素。
     6.  $("p#demo") 选取所有 id="demo" 的 <p> 元素。
-24. JSON就是基于JavaScript对象的格式写的
-25. 必须在回调函数中调用回调函数
-26. fetch()基于Promise, 特性比XMLHttpRequest多， 且XMLHttpRequest是古早产物
-27. Promise链???
+1. JSON就是基于JavaScript对象的格式写的
+1. 必须在回调函数中调用回调函数
+1. fetch()基于Promise, 特性比XMLHttpRequest多， 且XMLHttpRequest是古早产物
+1. Promise链???
    1. 状态
       1. pending,待定中即请求中
       2. fulfilled，已兑现，请求完成， 调用then()
@@ -145,7 +145,7 @@
       7. PromiseAny() 任何一个兑现都算fulfiled
       8. 函数开头加async，直接变异步函数，函数被封装成 Promise 对象，
       9. 强行同步 await, 类似PromiseAll, 它在等一个Promise.resolve(...), 也可以等任意表达式
-28. 箭头函数
+1. 箭头函数
    1. ES6引入，没new，没原型，没super, arguments, 没this, 没自动的 prototype
    2. () => {} 替代 function(){}
    3. (a,b)=>{} 替代 function(a,b){}
@@ -154,11 +154,11 @@
         1.  (x) => 2 * x 
         2.  let setName = (x) => x.name = "Bob" 
 
-29. 定时器setTimeout()
+1. 定时器setTimeout()
 
-30. workers?????
+1. workers?????
 
-31. 存储
+1. 存储
    1. ~~cookies~~, document.cookie一把梭
    2. WebStorage/IndexDB
       1. WebStorage
@@ -168,23 +168,23 @@
 
 
 
-32. [object Object]
+1. [object Object]
    1. 每一个对象都有toString(),默认情况下，toString被每个Object继承，如果未覆写，则toString返回[object type]，其中 type是对象的类型
    2. 字符串拼接，会将+两边的都是String时才拼接，而对象被拼接时会被toString()调用。如果直接打印，则对象无法被默认tostring转换，从而显示object
    3. 解决：加JSON.stringfy(对象名)
 
-33. json数组本身就是javascript写的文件
-34. import直接引入后, 就已经获得了json对象
+1. json数组本身就是javascript写的文件
+1. import直接引入后, 就已经获得了json对象
    ```
    import json from '../assets/BEIJING_country.json'
    ```
-35. JavaScript的对象是动态类型，可以自由的给对象删除属性
+1. JavaScript的对象是动态类型，可以自由的给对象删除属性
    ```
    delete  man.nickName
    delete man['nickName']
    ```
-36. 对象的键必须是字符串，Map除外
-37. object打印
+1. 对象的键必须是字符串，Map除外
+1. object打印
    1. 直接打印
    ```javascript
       console.log("str:",str)
@@ -200,14 +200,16 @@
         console.log(item + ' node: ' + map[item])
       }
    ```
-38. 闭包
+1. 闭包
 
-39. npm --save
+1. npm --save
     1. --save是npm5.0时需要的，现在--save已经是内置函数了
 
-40. 别名
+1. 别名
    项目别名配置需要在 vite.config.json 和 tsconfig.json 两处同时配置, 且 tsconfig.json 需要安装`@type/node`后才可以使用。【为了补充类型声明文件即使在项目新建时已经使用了--template vue-ts自动引入的typescript】
-41. npm 安装 better-sqlite3 , gyp报错，删除 npm-lock.json,后重新 npm install
+1. npm 安装 better-sqlite3 , gyp报错，删除 npm-lock.json,后重新 npm install
+
+2. import 到路径时，没有指定文件名则会默认进入当前的index.js
 
 
 
