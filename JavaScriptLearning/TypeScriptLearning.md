@@ -144,32 +144,70 @@ javascript代码可运行在 Node 和 Web 的环境中，window 是 Web环境的
       `let blob = require("blob-polyfill/Blob");`
       6. 直接使用`<script src = "./utils-value.js"></script>`后，使用已定义的变量
 
-1.  [vite] Internal server error: Failed to resolve import "../" from "src\apis\user.ts". Does the file exist?
-    1.  解决:https://www.jianshu.com/p/39f42d4022c2
-    2.  配置别名路径，需要安装path插件
-   ```
-   npm install --save-dev @types/node
-   vite.config.ts中补充
-   import { defineConfig } from 'vite'
-   import vue from '@vitejs/plugin-vue'
+   1.  [vite] Internal server error: Failed to resolve import "../" from "src\apis\user.ts". Does the file exist?
+       1.  解决:https://www.jianshu.com/p/39f42d4022c2
+       2.  配置别名路径，需要安装path插件
+         ```
+         npm install --save-dev @types/node
+         vite.config.ts中补充
+         import { defineConfig } from 'vite'
+         import vue from '@vitejs/plugin-vue'
 
-   // *********************************** 路径配置新增 start  
-   import { resolve } from 'path'     
+         // *********************************** 路径配置新增 start  
+         import { resolve } from 'path'     
 
-   const pathResolve = (dir: string): any => {  
-   return resolve(__dirname, ".", dir)          
-   }
+         const pathResolve = (dir: string): any => {  
+         return resolve(__dirname, ".", dir)          
+         }
 
-   const alias: Record<string, string> = {
-   '@': pathResolve("src")
-   }
+         const alias: Record<string, string> = {
+         '@': pathResolve("src")
+         }
 
-   // ********************************** 路径配置新增  end 
-   // https://vitejs.dev/config/
-   export default defineConfig({
-   plugins: [vue()],
-   resolve: {  // ****************** 路径配置新增
-      alias     // ****************** 路径配置新增
-   }           // ****************** 路径配置新增
-   })
-   ```
+         // ********************************** 路径配置新增  end 
+         // https://vitejs.dev/config/
+         export default defineConfig({
+         plugins: [vue()],
+         resolve: {  // ****************** 路径配置新增
+            alias     // ****************** 路径配置新增
+         }           // ****************** 路径配置新增
+         })
+         ```
+   1. Could not find a declaration file for module 'module-name'. '/path/to/module-name.js' implicitly has an 'any' type
+
+      解决: 三方的包缺少.d.ts文件。
+      1. 尝试中央库寻找对应的 module.d.ts 来安装 `npm install -D @types/module-name`
+      2. 尝试使用 require 替换 import
+      3. 新建对应 module 的 module.d.ts
+         ```
+         // module.d.ts
+         declare module 'module';
+         ``` 
+         如果是自建的 module，修改为
+         ```
+         // foo.d.ts
+         declare module 'foo' {
+            export function getRandomNumber(): number
+         } 
+         ```
+         这将正确编译为
+         ```
+         import { getRandomNumber } from 'foo';
+         const x = getRandomNumber(); // x is inferred as number
+         ```
+
+      4. 想早点睡觉抑制这个冲突
+         ```
+         // @ts-ignore
+         ```
+
+   2. Argument of type 'HTMLElement | null' is not assignable to parameter of type 'HTMLElement'.
+  Type 'null' is not assignable to type 'HTMLElement'.
+      解决: 添加非空断言 `var myChart = echarts.init(document.getElementById(idStr)!);` 修改为 `var myChart = echarts.init(document.getElementById(idStr)!)!;`
+
+   3. Typescript: TS7006: Parameter 'xxx' implicitly has an 'any' type
+      解决：xxx替换为 xxx: any
+
+   4. Argument of type '(blob: string) => void' is not assignable to parameter of type '(value: unknown) => void | PromiseLike<void>'.
+      解决: then()的使用中必须是unknown, 类型判断放在then{}里的
+      `img.src = blob,` 写成 `  img.src = URL.createObjectURL(blob as Blob);`

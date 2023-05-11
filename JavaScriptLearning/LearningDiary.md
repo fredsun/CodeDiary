@@ -208,6 +208,18 @@ Grid继承自tileLayer，并且提供继承demo。
 所以考虑重写GridLayer, 
 * 注意 重写的是 `createTile: function (coords) {`，而不是` createTile: function (coords, done) {`
 
+### 4.15
+### 4.16
+### 4.17
+### 4.18
+### 4.19
+### 4.21
+### 4.22
+### 4.23
+### 4.24
+### 4.25
+
+
 
 
 
