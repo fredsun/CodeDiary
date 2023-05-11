@@ -152,6 +152,7 @@ geoserver的样式legend无法preview，将jdk降低到8
 
 ### 4.1
 直接访问图片的方式访问瓦片
+测试岚景app
 
 ### 4.3
 瓦片存放规则为目录z/x/y.jpg
@@ -209,15 +210,37 @@ Grid继承自tileLayer，并且提供继承demo。
 * 注意 重写的是 `createTile: function (coords) {`，而不是` createTile: function (coords, done) {`
 
 ### 4.15
+完成本地数据库读取blob字段的，并写入地图tile瓦片
 ### 4.16
+尝试服务器形式发布 xyz瓦片
 ### 4.17
 ### 4.18
+尝试运行 geoserver 运行 xyz 瓦片
 ### 4.19
+索引优化查询速度
 ### 4.21
 ### 4.22
-### 4.23
+
 ### 4.24
 ### 4.25
+### 4.26
+拿到点位潮汐算法的 python 文件
+### 4.27
+
+
+### 5.4
+提交接口文档
+### 5.5
+尝试conda运行点位潮汐算法进 django 服务器
+### 5.6
+修改获取点位潮汐算法 ini 文件中 nc 的路径，可运行在 django 的 python 环境下 
+
+### 5.9
+修改vite项目适应 typescript 语法
+### 5.10
+打包 vite 为 dist 文件夹，塞进 django 的 pywebserver 框架
+### 5.11
+
 
 
 
