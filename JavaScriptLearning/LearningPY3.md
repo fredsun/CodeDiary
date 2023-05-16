@@ -133,3 +133,9 @@ Run 'python manage.py migrate' to apply them.
 
 * ModuleNotFoundError: No module named 'webview'
   * pip install pywebview
+
+* has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
+  * 服务器未开启CORS.
+  * `  response["Access-Control-Allow-Origin"] = "*"`修改为`  response.headers.["Access-Control-Allow-Origin"] = ""`
+
+* 服务器返回字段直接 JsonResponse 处理拼接的data，dumps会生成 JSON字符串，导致 " 被转义

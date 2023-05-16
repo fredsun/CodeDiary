@@ -11,7 +11,7 @@
 
 
 
-2. vue2 vs vue3
+1. vue2 vs vue3
    1. compositionAPI
       1. setUp配置
       2. ref与reactive
@@ -24,13 +24,13 @@
    6. data对象始终被声明为一个函数
    7. 移除keycode支持作为v-on的修饰符 
 
-3. 安装
+1. 安装
     ```
     //安装vue3脚手架
     npm install -g @vue/cli
     ```
 
-4. 创建项目
+1. 创建项目
    1. vue-cli
     ```
     vue create vue3_test
@@ -45,7 +45,7 @@
     npm run dev 
     ```
 
-5. setup函数
+1. setup函数
    1. vue3配置项
    2. 返回值是
       1. 对象，则对象值可直接用
@@ -60,7 +60,7 @@
          2. slots，收到插槽内容，相当于this.$slots, v-slot:qwe
          3. emit，分发自定义事件的函数，相当于this.$emit，父组件绑定的 hello 事件，子组件需要在exports中设置 emits:['hello'],
 
-6. ref函数(reference引用
+1. ref函数(reference引用
    1. 定义基本数据类型，对象靠reactive函数转化为Proxy来操作
    2. 操作数据需要.value, 读取数据不需要.value
    3. 将输入转为RefImpl对象 RefImpl{...}
@@ -89,7 +89,7 @@
       })
       ```
 
-2. vue3响应式
+1. vue3响应式
    1. vue2中
       1. 对象类型，通过Object.defineProperty()对属性进行读取、修改和拦截（数据劫持）
       2. 数组类型，通过重写数组的更新方法来拦截，
@@ -229,6 +229,9 @@
 6. Suspense 异步渲染
    1. 
 7. 插值写法
+
+#### 环境变量配置
+1. 配置3个文件，根目录下【src外】的
 
 
 ### 报错
