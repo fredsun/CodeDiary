@@ -5,4 +5,4 @@
    2. "revert to this revision" 回到版本2，3和4的变动将被清空
    3. "revert changes from this revision" ，2的变动消失，1和3和4保留
 
-1. vscode, git与svn并存，
+1. vscode, svn插件需要.svn已经存在于目录中

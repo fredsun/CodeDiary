@@ -211,6 +211,8 @@
 
 2. import 到路径时，没有指定文件名则会默认进入当前的index.js
 
+1. css中没有内容的话,css本身也不会显示
+2. css居中, 单一组件可外部设置flex
 
 
 #### js模块历史(环境+编译器+语法版本)
@@ -382,7 +384,7 @@
       3. Uncaught ReferenceError: require is not defined
          1. node14已经不再支持require引入
 
-1. html 4.0.1<xmp>被废弃的标签可用来直接输出带标签的html结构文件, <pre>反而会转义html标签
+1. html 4.0.1`<xmp>`被废弃的标签可用来直接输出带标签的html结构文件, `<pre>`反而会转义html标签
 
 2. Uncaught SyntaxError: Unexpected token 'export'
    1. 引入时加入type的`<script src = "..." type ="module"></script>`
@@ -390,3 +392,9 @@
 3. ReferenceError: module is not defined
    1. `module.exports = api;`改为`export default api`
 
+1. rotate动画,设置为rotate(180deg)时不要乱加空格比如(180 deg)
+1. 数组的监听使用
+
+1. 居中
+   1. justify-content: 主轴居中
+   2. align-parent: 副轴居中

@@ -247,10 +247,43 @@ Grid继承自tileLayer，并且提供继承demo。
 ### 5.15
 
 ### 5.16
-服务器和web项目上传svn
+服务器和web项目上传svn。vscode实现git,svn同时控制前端项目
+
+### 6.7
+对进度, 初步完成左抽屉逻辑
 
 
+### 7.15
+打包
+npm run build
 
+ npm install -g serve
+ serve -s dist
+
+
+ ### 7.18 
+ div 嵌套时点击事件需要防止被父类拦截，即子div设置 @click.stop，包括但不限于dialog的取消确认按钮以及dialog本身
+
+ echart留白,optipn中设置grid` grid: {
+        left: 10,
+        containLabel: true,
+        bottom: 10,
+        top: 10,
+        right: 30
+    },
+`
+
+关于最高点为样式，背景symbol随过于宽的潮高number改变会很丑，切下角标号难于对齐，并且遮挡其他点位数据，于是最高点数据只显示整数，确保字符都在symbol内, 也解决了超出symbol的数字自带镂空的问题。
+
+于是最高点markpoint在formatter中启动function，强转潮高number为int达成缩短宽度的目的
+
+
+### 8.3
+放弃scrollbar,recyclerview一招鲜的概念，前端更多的是随意性。
+div直接包裹带v-for的 div实现有滚动条的list。
+滚动条在确认chrome内核ok时，放心使用`-webkit-`格式的style
+因为滚动条导致x轴边长时，hidden x 滚动条，
+这一套原生组件用法>>>elementui的el-scrollbar，并且scrollTo, scrollIntoView,scrollTop之类的原生用法直接调用，而不是被scrollbar束手束脚
 
 
 

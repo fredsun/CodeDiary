@@ -44,7 +44,7 @@
     npm install
     npm run dev 
     ```
-
+### 语法
 1. setup函数
    1. vue3配置项
    2. 返回值是
@@ -230,6 +230,12 @@
    1. 
 7. 插值写法
 
+1. SFC( Single-File Component) ，单文件组件，即*.vue
+   
+### 动画
+1. v-enter-to 在设置了 `<transition name = "xxx">`后, 动画的设置会从 `v-enter-to` 变成 `xxx-enter-to`
+2. v-if是添加/删除元素, v-show是展示/隐藏元素
+
 #### 环境变量配置
 1. 配置3个文件，根目录下【src外】的
 
@@ -255,3 +261,87 @@
          "build": "vue-cli-service build"
        },
       ```
+
+
+1. `defineProps()` in <script setup> cannot reference locally declared variable
+   1. 非setup模式下, .vue文件中 defineProps 和 setup 属于同一级, 所以当用 defineProps 在 setup语法糖环境中定义局部变量时，会导致
+
+
+1. li去掉左侧的小黑点，需要ul和li都设置 list-style: none;
+```
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 删除li前面的点 */
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+```
+
+1. 盒子塌陷：如果存在无法消除的间隙，即不知名的margintop效果存在。考虑父控件display的设置，如果没设置，考虑设置为flex
+
+1. watch不生效
+   1. 监听的内容确认是响应式
+   2. 确认数据的变化是响应式触发，而不是直接绕开暴露的方法去修改原数据
+   3. 对象类型，数组里是对象类型。数组需要最后加参数{deep:true}
+
+
+1.  vue正确使用别名的方法
+```
+export default defineConfig({
+  plugins: [vue()],
+  base: "./",
+		resolve: {
+			alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+		},
+})
+```
+单个vue对已经成功配置的别名引用报错时,大概率缓存问题,重启vscode.
+
+1. echart需要固定的px宽高，而不是%
+1. 函数的数组形参需要注明数组类型
+1. el-date-picker 里值的格式规范化，value-format="YYYY-MM-DD HH:mm:ss" 注意yyyy大写
+
+### 组件通信
+1. 父组件调用子组件的方法 ref
+``` this.$refs.childComp.play();```已被vue3废弃, 直接使用ref
+
+1. 父组件 Main
+```javascript
+//获取子组件的引用，调用方法
+<template>
+  <Map ref="mapRef"></Map>
+</template>
+<script setup lang="ts">
+import { ref } from 'vue'
+const mapRef = ref();
+  mapRef.value.moveToFocusPoint(point);
+</script>
+```
+
+1. 子组件 Map
+```javascript
+<script setup lang="ts">
+function moveToFocusPoint(point: Point) {
+
+    let center = L.latLng(point.lat, point.lng);
+
+    map.setView(center, 8);
+}
+
+defineExpose({
+    moveToFocusPoint
+})
+</script>
+```
+
+1. box-shadow需要设置` box-shadow:0 1px 2px rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);`和`  z-index: 2;`才生效, 如果被同级元素遮挡, 考虑自身设置`position:relative`
+
+1. overflow:auto，类似事件传递机制，得注意外部是否也会拦截页面滑动
