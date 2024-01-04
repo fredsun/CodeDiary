@@ -290,8 +290,8 @@ div直接包裹带v-for的 div实现有滚动条的list。
 
 
 
-
-
+### 12.11
+完成命令行版单targetRecvmirror
 
 
 

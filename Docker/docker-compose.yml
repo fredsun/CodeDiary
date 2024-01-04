@@ -1,0 +1,25 @@
+
+version: '3'
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    environment:
+      - CLICKHOUSE_CONFIG=/etc/clickhouse-server/config.xml
+    volumes:
+      -volume=/home/clickhouse/conf/config.xml:/etc/clickhouse-server/config.xml \
+      -volume=/home/clickhouse/conf/users.xml:/etc/clickhouse-server/users.xml \
+      -volume=/home/clickhouse/conf/users.d/default-password.xml:/etc/clickhouse-server/users.d/default-password.xml \
+      -volume=/home/clickhouse/data/:/var/lib/clickhouse/:rw \
+
+  fastapi:
+    image: your-fastapi-image
+    ports:
+      - "8000:8000"
+    depends_on:
+      - clickhouse
+    environment:
+      - CLICKHOUSE_URL=http://clickhouse:8123  # Use the service name as the hostname
